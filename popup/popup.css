@@ -1,0 +1,317 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.5;
+}
+
+.container {
+  width: 350px;
+  padding: 16px;
+}
+
+h1 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #3c4043;
+  text-align: center;
+}
+
+.section {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: #5f6368;
+}
+
+.shortcut-config {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.shortcut-display {
+  padding: 8px 12px;
+  background-color: #f1f3f4;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 14px;
+  color: #3c4043;
+  display: inline-block;
+  margin: 4px 0;
+}
+
+.btn {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  align-self: flex-start;
+}
+
+.btn:hover {
+  background-color: #1765cc;
+}
+
+.shortcut-hint {
+  font-size: 12px;
+  color: #70757a;
+}
+
+.preview-container {
+  padding: 8px 0;
+  /* Add background for better contrast on different themes */
+  background-color: #eee;
+  border-radius: 4px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.style-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.style-selector label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Base Share Card Styles (applied via JS in content script, mirrored here for preview) */
+.share-card {
+  width: 350px; /* Adjust preview width */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  transition: all 0.3s ease;
+  border: 1px solid transparent; /* Base border */
+}
+
+.share-card .quote-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.share-card .quote-icon {
+  font-size: 22px;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.share-card .quote-text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.share-card .context-text {
+  font-size: 13px;
+  margin-left: 32px; /* Align with quote text */
+  margin-bottom: 12px;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+.share-card .divider {
+  height: 1px;
+  margin: 16px 0;
+}
+
+.share-card .website-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.share-card .website-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.share-card .website-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.share-card .website-details {
+  overflow: hidden;
+}
+
+.share-card .website-title {
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.share-card .website-url {
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.7;
+}
+
+/* Default Style */
+.share-card-style-default {
+  background-color: white;
+  color: #333;
+}
+.share-card-style-default .quote-icon {
+  color: #ccc;
+}
+.share-card-style-default .quote-text {
+  color: #3c4043;
+}
+.share-card-style-default .context-text {
+  color: #70757a;
+}
+.share-card-style-default .divider {
+  background-color: #f1f3f4;
+}
+.share-card-style-default .website-title {
+  color: #3c4043;
+}
+.share-card-style-default .website-url {
+  color: #70757a;
+}
+
+/* Dark Style */
+.share-card-style-dark {
+  background-color: #2c2c2e;
+  color: #e5e5e7;
+}
+.share-card-style-dark .quote-icon {
+  color: #6c6c70;
+}
+.share-card-style-dark .quote-text {
+  color: #f2f2f7;
+}
+.share-card-style-dark .context-text {
+  color: #a0a0a5;
+}
+.share-card-style-dark .divider {
+  background-color: #48484a;
+}
+.share-card-style-dark .website-icon {
+  background-color: #48484a;
+}
+.share-card-style-dark .website-title {
+  color: #f2f2f7;
+}
+.share-card-style-dark .website-url {
+  color: #a0a0a5;
+}
+
+/* Gradient Style */
+.share-card-style-gradient {
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  color: #4a2e00;
+}
+.share-card-style-gradient .quote-icon {
+  color: #f5a623;
+}
+.share-card-style-gradient .quote-text {
+  color: #5d3a00;
+}
+.share-card-style-gradient .context-text {
+  color: #8c5a00;
+  opacity: 0.9;
+}
+.share-card-style-gradient .divider {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.share-card-style-gradient .website-icon {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.share-card-style-gradient .website-title {
+  color: #5d3a00;
+}
+.share-card-style-gradient .website-url {
+  color: #8c5a00;
+  opacity: 0.8;
+}
+
+/* Minimal Style */
+.share-card-style-minimal {
+  background-color: #f8f8f8;
+  color: #444;
+  border: 1px solid #e0e0e0;
+  box-shadow: none;
+}
+.share-card-style-minimal .quote-icon {
+  color: #b0b0b0;
+}
+.share-card-style-minimal .quote-text {
+  color: #222;
+  font-size: 15px;
+}
+.share-card-style-minimal .context-text {
+  color: #666;
+  font-size: 12px;
+}
+.share-card-style-minimal .divider {
+  background-color: #e8e8e8;
+}
+.share-card-style-minimal .website-icon {
+  border-radius: 4px; /* Square icon */
+  background-color: #e8e8e8;
+}
+.share-card-style-minimal .website-title {
+  color: #333;
+}
+.share-card-style-minimal .website-url {
+  color: #777;
+}
+
+/* Remove preview-card specific styles if they conflict */
+.preview-card {
+  /* Inherit from .share-card styles */
+}
+
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #70757a;
+  margin-top: 8px;
+}

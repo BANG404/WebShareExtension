@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Share Extension</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>ToShare</h1>
+    
+    <div class="section">
+      <h2>快捷键设置</h2>
+      <div class="shortcut-config">
+        <label for="shortcut-input">分享快捷键:</label>
+        <div class="shortcut-display" id="shortcut-display">Ctrl+Shift+S</div>
+        <button id="change-shortcut" class="btn">修改快捷键</button>
+        <div class="shortcut-hint">点击"修改快捷键"后按下你想要的组合键</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>卡片样式选择</h2>
+      <div class="style-selector" id="style-selector">
+        <label>
+          <input type="radio" name="card-style" value="default" checked> 默认
+        </label>
+        <label>
+          <input type="radio" name="card-style" value="dark"> 暗色
+        </label>
+        <label>
+          <input type="radio" name="card-style" value="gradient"> 渐变
+        </label>
+        <label>
+          <input type="radio" name="card-style" value="minimal"> 极简
+        </label>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>样式预览</h2>
+      <div class="preview-container">
+        <!-- Add id="preview-card" and initial class -->
+        <div class="preview-card share-card share-card-style-default" id="preview-card">
+          <div class="quote-section">
+            <div class="quote-icon">❝</div>
+            <p class="quote-text">这是选中的文本示例，将会显示在分享卡片中...</p>
+          </div>
+          
+          <p class="context-text">这里是文本的上下文内容，提供更多背景信息...</p>
+          
+          <div class="divider"></div>
+          
+          <div class="website-info">
+            <div class="website-icon"></div>
+            <div class="website-details">
+              <p class="website-title">网站标题</p>
+              <p class="website-url">website-url.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>选中网页文本后，按下快捷键即可生成分享图片并复制到剪贴板</p>
+      <p>联系方式：uxxiee@ibat.ac.cn</p>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
